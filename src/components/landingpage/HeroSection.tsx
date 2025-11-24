@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import {
   ArrowRight,
   Rocket,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 const HeroSection = () => {
+  const router = useRouter();
   const headlines = [
     "Stuck in something?",
     "Looking for the right mentor?",
@@ -168,10 +170,16 @@ const HeroSection = () => {
           transition={{ delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto"
         >
-          <button className="px-8 py-4 rounded-xl bg-linear-to-r from-blue-600 to-purple-600 text-white font-bold text-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+          <button 
+            onClick={() => router.push("/profile/create")}
+            className="px-8 py-4 rounded-xl bg-linear-to-r from-blue-600 to-purple-600 text-white font-bold text-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
             Get Mentorship <ArrowRight size={20} />
           </button>
-          <button className="px-8 py-4 rounded-xl bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-300 font-bold text-lg hover:border-gray-300 hover:bg-white transition-all duration-300 hover:scale-105">
+          <button 
+            onClick={() => router.push("/profile/create")}
+            className="px-8 py-4 rounded-xl bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-300 font-bold text-lg hover:border-gray-300 hover:bg-white transition-all duration-300 hover:scale-105"
+          >
             Explore Mentors
           </button>
         </motion.div>
